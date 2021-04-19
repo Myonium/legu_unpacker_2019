@@ -25,11 +25,13 @@ The *hashmap* embedded in the second part is described in the [legu_hashmap.ks](
 
 [pylegu](./pylegu) contains the Python bindings to decrypt and uncompress the data embedded in ``assets/0OO00l111l1l``.
 
+Please note: Compilation will fail if you use a recent gcc.
+gcc is broken because it changed the language in 6.0. Use "CC=gcc -std=gnu89".
 To compile and install ``pylegu``:
 
 ```bash
 $ cd pylegu
-$ python3.7 ./setup.py build -j4 install --user
+$ CC="gcc -std=gnu89" python3.7 ./setup.py build -j4 install --user
 $ python -c "import pylegu"
 ```
 
